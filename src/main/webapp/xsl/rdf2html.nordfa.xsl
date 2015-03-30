@@ -25,8 +25,8 @@
 	
 	<xsl:variable name="isA">
 		<xsl:choose>
-			<xsl:when test="contains($language,'en')"><xsl:text> a </xsl:text></xsl:when>
-			<xsl:when test="contains($language,'es')"><xsl:text> es </xsl:text></xsl:when>
+			<xsl:when test="contains($language,'en')"><xsl:text>  a </xsl:text></xsl:when>
+			<xsl:when test="contains($language,'es')"><xsl:text>  es </xsl:text></xsl:when>
 			<xsl:otherwise><xsl:text> a </xsl:text></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
@@ -37,15 +37,15 @@
 				<head>
 					<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8"/>
 					<title>Rhizomik - ReDeFer - RDF2HTML</title>
-					<link href="/redefer-services/style/rhizomer.css" type="text/css" rel="stylesheet" />
+					<link href="style/rhizomer.css" type="text/css" rel="stylesheet" />
 				</head>
 				<body>
 					<xsl:apply-templates select="rdf:RDF"/>
 					<xsl:if test="$logo='true'">
-						<div id="footlogo">
+						<div id="footlogo">Powered by
 							<div id="logo">
 								<a href="http://rhizomik.net"  xmlns="http://www.w3.org/1999/xhtml">
-									<img src="/redefer-services/images/rhizomer.small.png" alt="Rhizomik"/> Powered by Rhizomik
+									<img src="images/rhizomik-eye-100px.png" alt="Rhizomik"/>
 								</a>
 							</div>
 						</div>

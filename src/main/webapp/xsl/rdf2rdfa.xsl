@@ -32,8 +32,9 @@
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
 	<xsl:output media-type="text/xml" method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/> 
-	<!--  doctype-public="-//W3C//DTD XHTML+RDFa 1.0//EN" doctype-system="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"/-->
+
 	<xsl:strip-space elements="*"/>
+	<xsl:param name="logo">true</xsl:param>
 	
 	<xsl:template match="/">
 		<div class="rdf2rdfa" xmlns="http://www.w3.org/1999/xhtml">
@@ -55,6 +56,17 @@
 			<xsl:copy-of select="$namespaces/*/namespace::*"/> <!-- [name()!='']"/ -->		
 			
 			<xsl:apply-templates select="rdf:RDF"/>
+			<xsl:if test="$logo='true'">
+				<p style="text-align: center;">Right click and "view page source" to check the generated <b>RDFa</b>.</p>
+				<div id="footlogo" style="position: relative; left: 50%; width: 200px; margin-left: -100px;	margin-top: 20px; text-align: center; font-family: Helvetica, Arial, sans-serif;">
+					<p>Powered by</p>
+					<div id="logo">
+						<a href="http://rhizomik.net"  xmlns="http://www.w3.org/1999/xhtml">
+							<img src="images/rhizomik-eye-100px.png" alt="Rhizomik"/>
+						</a>
+					</div>
+				</div>
+			</xsl:if>
 			<!-- Show error message if we have a parsererror -->
 			<xsl:value-of select="//*[local-name()='sourcetext']"/>
 		</div>

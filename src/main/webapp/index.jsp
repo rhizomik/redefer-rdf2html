@@ -3,11 +3,17 @@
 <head>
   <title>ReDeFer RDF2HTML - RDF to HTML+RDFa Renderer</title>
   <link href="style/rhizomik.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript">
+    function setFormAction(form) {
+      var actionSelectionField = document.getElementById('action').options;
+      form.action = actionSelectionField[actionSelectionField.selectedIndex].value;
+    }
+  </script>
 </head>
 <body>
 <div id="logo"><a href="http://rhizomik.net"><img src="images/rhizomik-eye-100px.png"/></a></div>
 <h1>ReDeFer RDF2HTML - RDF to HTML+RDFa Renderer</h1>
-<form accept-charset="UTF-8" name="rdf2html" action="rdf2htmlrdfa" method="post" target="_blank">
+<form accept-charset="UTF-8" name="rdf2html" method="post" target="_blank" onsubmit="setFormAction(this);">
     <p>Input RDF/XML or URI pointing to RDF/XML content (e.g. http://dbpedia.org/resource/Semantic_Web):</p>
     <p><textarea cols="80" rows="10" name="rdf" id="rdf">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
  &lt;rdf:RDF xmlns:swrc=&quot;http://swrc.ontoware.org/ontology#&quot;
@@ -104,15 +110,22 @@
      &lt;rdfs:label xml:lang=&quot;es&quot;&gt;Direcci&oacute;n&lt;/rdfs:label&gt;
    &lt;/rdf:Description&gt;
  &lt;/rdf:RDF&gt;  </textarea></p>
+    <p>Action:</p>
+    <p><select id="action" name="action">
+      <option value="rdf2html">Generate HTML</option>
+      <option value="rdf2htmlrdfa" selected="selected">Generate HTML with embedded RDFa</option>
+      <option value="rdf2rdfa">Generate just RDFa, without visible HTML</option>
+      <option value="rdf2microdata">Generate just Microdata, without visible HTML</option>
+    </select></p>
     <p>Mode:</p>
     <p><select id="mode" name="mode">
-    <option value="html" selected="selected">HTML page (with header, body and CSS applied)</option>
-    <option value="snippet">Snippet (no HTML header, body and no styling)</option>
+      <option value="html" selected="selected">HTML page (with header, body and CSS applied)</option>
+      <option value="snippet">Snippet (no HTML header, body and no styling)</option>
     </select></p>
     <p>Show namespaces:</p>
     <p><select id="namespaces" name="namespaces">
-    <option value="false" selected="selected">Don't show, use labels for preferred language or local-names</option>
-    <option value="true">Show namespaces, using CURIEs</option>
+      <option value="false" selected="selected">Don't show, use labels for preferred language or local-names</option>
+      <option value="true">Show namespaces, using CURIEs</option>
     </select></p>
     <p>Language (en, es, de, fr,...):</p>
     <p><input type="text" value="en" id="language" name="language" /> (Filters preferred language if defined in input RDF using xml:lang)</p>
@@ -121,7 +134,8 @@
 		<option selected="selected" value="RDF/XML">RDF/XML</option>
 		<option value="N-TRIPLE">N-Triples</option>
 		<option value="N3">N3</option>
-	</select></p --> 	<input type="submit" name="Submit" value="Submit" />
+	</select></p -->
+    <input type="submit" name="Submit" value="Submit" />
 </form>
 <h1>RDF to HTML+RDFa Bookmarklet</h1>
 <p>Bored about facing RDF/XML in your browser? Drag and drop this bookmarklet link <a href="javascript:self.location='<%=request.getRequestURL()%>rdf2html?namespaces=true&amp;rdf='+encodeURIComponent(window.location.href);">RDF2HTMLBookmarklet</a> to your Bookmarks Bar. Then, when you face a web page full of RDF/XML, click the bookmarklet and enjoy a more pleasant view.</p>

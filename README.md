@@ -17,7 +17,7 @@ To build the deployment **WAR** file using the source code and **Maven**:
 
 # Use
 
-When deployed in a local servlet container like Tomcat, the RDF2HTML services will be available at something like: **http://localhost:8080/rdf2html/rdf2htmlrdfa**
+When deployed in a local servlet container like Tomcat, the RDF2HTML services will be available at something like **http://localhost:8080/rdf2html/rdf2htmlrdfa** or **http://localhost:8080/rdf2html/rdf2rdfa**
 
 (The service is deployed at **rhizomik.net/redefer-services/rdf2html** and it can be tested from [http://rhizomik.net/redefer/rdf2html-form/]())
 
@@ -25,9 +25,9 @@ It can called using **GET** or **POST**. The former is recommended when the RDF 
 
 The parameters of the service are:
 
-*   **rdf=RDF/XML | URI**: the RDF/XML to be processed or a URI (content negotiated) where it can be retrieved from.
-*   **mode=html | snippet**: defines if the output is a full XHTML page or just a snippet for inclusion in other web pages (default "html").
-*   **namespaces=true | false**: defines if the rendered output should show information about properties and resources namespaces or not (default "false").
+*   **rdf= RDF/XML | URI**: the RDF/XML to be processed or a URI (content negotiated) where it can be retrieved from.
+*   **mode= html | snippet**: defines if the output is a full XHTML page or just a snippet for inclusion in other web pages (default "html").
+*   **namespaces= true | false**: defines if the rendered output should show information about properties and resources namespaces or not (default "false").
 *   **language= en | es | fr...**: filter literals and labels based on the preferred language (default "en").
 
 Examples using GET and the RDF2HTML service deployed at **rhizomik.net/redefer-services/rdf2html**:

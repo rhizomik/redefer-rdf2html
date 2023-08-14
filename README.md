@@ -4,9 +4,9 @@ The RDF to HTML services **RDF2HTML** generate an **HTML** representation of the
 
 The input **RDF/XML** is transformed using a set of **XSLTs**:
  
-* **RDF2HTML**: the simples XSLT, it generates HTML so human users can easily see what the RDF data is about.
-* **RDF2HTML+RDFa**: in addition to HTML for humans, hidden RDFa is added to keep the original RDF for machines consumption.
-* **RDF2RDFa**: this transformation generates just RDFa, without any visible representation for human users. Used by [http://www.ebusiness-unibw.org/tools/rdf2rdfa/]() to generate cut&paset RDFa to enrich existing HTML pages.
+* **RDF2HTML**: the simplest XSLT, it generates HTML so human users can easily see what the RDF data is about.
+* **RDF2HTML+RDFa**: in addition to HTML for humans, hidden RDFa is added to keep the original RDF for machines' consumption.
+* **RDF2RDFa**: this transformation generates just RDFa, without any visible representation for human users. Used by http://www.ebusiness-unibw.org/tools/rdf2rdfa to generate cut&paset RDFa to enrich existing HTML pages.
 * **RDF2Microdata**: like RDF2RDFa but in this case what is generated is Microdata.
 
 # Installation
@@ -17,9 +17,9 @@ To build the deployment **WAR** file using the source code and **Maven**:
 
 # Use
 
-When deployed in a local servlet container like Tomcat, the RDF2HTML services will be available at something like **http://localhost:8080/rdf2html/rdf2htmlrdfa** or **http://localhost:8080/rdf2html/rdf2rdfa**
+When deployed in a local servlet container like Tomcat, the RDF2HTML services will be available from localhost:8080. 
 
-(The service is deployed at **rhizomik.net/redefer-services/rdf2html** and it can be tested from [http://rhizomik.net/redefer/rdf2html-form/]())
+The service is already deployed at **redefer.rhizomik.net/redefer-services/rdf2html** and it can be tested from **https://rhizomik.net/html/redefer/rdf2html-form/**
 
 It can called using **GET** or **POST**. The former is recommended when the RDF to be transformed is available from a URL, the latter when direct input is provided.
 
@@ -32,7 +32,6 @@ The parameters of the service are:
 
 Examples using GET and the RDF2HTML service deployed at **rhizomik.net/redefer-services/rdf2html**:
 
-*   **Show the RDF about http://dbpedia.org/resource/RDFa**:
+*   **Show the RDF for Tim Berners-Lee's [FOAF profile](http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf):
     
-    [http://rhizomik.net/redefer-services/rdf2html?rdf=http://dbpedia.org/resource/RDFa&mode=html&namespaces=true&language=en]
-    (http://rhizomik.net/redefer-services/rdf2html?rdf=http://dbpedia.org/resource/RDFa&mode=html&namespaces=true&language=en)
+    https://redefer.rhizomik.net/rdf2html?rdf=http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf&mode=html&namespaces=true&language=en
